@@ -1,6 +1,5 @@
 package ua.voida;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -25,6 +24,9 @@ public class Vamp {
                 i = vamp( before, now, map).size();
             }
         }
+        map.forEach(( k, v) -> {
+            System.out.println(k + " = " + v);
+        });
     }
     public static  Map<String, String> vamp ( String before , String now,  Map<String, String> map ) {
         for (char i : before.toCharArray()) {
@@ -32,12 +34,7 @@ public class Vamp {
                 return map;
             }
         }
-        map.forEach((k,v) -> {
-            if ( !now.contentEquals(k)) {
-                map.put(now, before.toCharArray()[0] + "" + before.toCharArray()[1] + " * " + before.toCharArray()[2] + "" + before.toCharArray()[3] );
-            }
-
-        });
+        map.put(now, before.toCharArray()[0] + "" + before.toCharArray()[1] + " * " + before.toCharArray()[2] + "" + before.toCharArray()[3] );
         return map;
     }
 
